@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--&lt;!&ndash; item-platform &ndash;&gt;-->
+    <dubbo:application name="item-platform" />
+    <!--&lt;!&ndash; 使用zookeeper注册中心暴露服务地址 &ndash;&gt;-->
+    <dubbo:registry address="zookeeper://zk1.2dfire-daily.com:2181?backup=zk2.2dfire-daily.com:2181,zk3.2dfire-daily.com:2181" check="false" />
+
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetMenuService" id="getMenuService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetSpecDetailService" id="getSpecDetailService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetMakeService" id="getMakeService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetMenuDetailService" id="getMenuDetailService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IMultiMenuReadService" id="multiMenuReadService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetAdditionService" id="getAdditionService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetTasteService" id="getTasteService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.platform.service.IShopCategoryService" id="shopCategoryService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IGetSuitMenuService" id="getSuitMenuService" version="1.0.0"/>
+    <dubbo:reference interface="com.dfire.soa.item.service.IBackstageService" id="backstageService" version="1.0.0"/>
+    <dubbo:reference id="itemSolrQueryService" interface="com.dfire.soa.item.platform.service.read.IItemSolrQueryService" version="1.0.0"/>
+</beans>
