@@ -32,3 +32,4 @@ test-output/
 .project
 .idea/
 logs/
+.DS_Store
